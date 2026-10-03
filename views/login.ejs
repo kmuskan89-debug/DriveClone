@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create your account</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+
+  <body class="min-h-screen bg-slate-100 flex items-center justify-center p-4 font-sans antialiased">
+    <main class="w-full max-w-lg bg-white rounded-2xl shadow-lg ring-1 ring-slate-200 p-6 sm:p-10">
+      <h1 class="text-2xl font-semibold text-slate-900">Create your account</h1>
+      <p class="mt-1 mb-8 text-sm text-slate-500">It takes less than a minute.</p>
+
+      <form action="/user/login" method="post" class="space-y-5" id="signin">
+        <div class="grid gap-5 sm:grid-cols-2">
+          <div>
+            <label for="username" class="block mb-1.5 text-sm font-medium text-slate-700">Username</label>
+            <input type="text" id="username" placeholder="John" name="username" required
+              class="block w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-4 focus:ring-indigo-100" />
+          </div>
+
+
+        <div>
+          <label for="password" class="block mb-1.5 text-sm font-medium text-slate-700">Password</label>
+          <input type="password" id="password" placeholder="At least 8 characters" minlength="8" name="password" required
+            class="block w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-4 focus:ring-indigo-100" />
+        </div>
+
+
+        <div class="flex items-start gap-2.5">
+          <input id="remember" type="checkbox" required
+            class="mt-0.5 h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-2 focus:ring-indigo-200" />
+          <label for="remember" class="text-sm text-slate-600">
+            I agree with the <a href="#" class="font-medium text-indigo-600 hover:underline">terms and conditions</a>.
+          </label>
+        </div>
+
+        <button type="Login"
+          class="w-full rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-medium text-white shadow-sm transition hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-200">
+          Sign In
+        </button>
+      </form>
+    </main>
+
+    <script>
+      const form = document.getElementById("signin");
+      const pw = document.getElementById("password");
+      const err = document.getElementById("match_error");
+
+      form.addEventListener("submit", (e) => {
+        if (pw.value !== cpw.value) {
+          e.preventDefault();
+          err.classList.remove("hidden");
+          cpw.focus();
+        } else {
+          err.classList.add("hidden");
+        }
+      });
+    </script>
+  </body>
+</html>
